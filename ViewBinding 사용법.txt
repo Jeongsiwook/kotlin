@@ -1,0 +1,15 @@
+1. build.gradle (Module: ~) 파일
+	android {
+		buildFeatures {viewBinding true} // 추가
+	} 
+
+2. MainActivity.kt 파일
+	class MainActivity : AppCompatActivity() {
+		val binding by lazy { ActivityMainBinding.inflate(layoutInflater) } // 추가
+	
+		override fun onCreate(savedInstanceState: Bundle?) {
+			setContentView(binding.root) // 변경
+
+			binding.ID.~ // 사용
+		}
+	}
